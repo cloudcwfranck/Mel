@@ -1,21 +1,36 @@
 # Mel — RiftMeld
 
-You asked for "a game better than Rummikub", so this repo now ships **RiftMeld**:
-a fast set-building game inspired by Rummikub with extra strategy and disruption.
+RiftMeld now has two ways to play:
 
-## Why it is "better" (more strategic / chaotic)
+1. **Browser version (no install):** open the GitHub Pages URL after the deploy workflow runs.
+2. **Terminal version (Python prototype):** run `python3 game.py` locally.
 
-RiftMeld keeps the satisfying pattern-building core (sets + runs) and adds:
+## Play in browser (no download required)
 
-- **Round events** that alter scoring each cycle (Solar Flare, Lunar Echo, etc.).
-- **Power tiles**:
-  - **Shift** changes the active event.
-  - **Steal** takes a random tile from an opponent.
-  - **Forge** converts two tiles into a Joker.
-- **Dynamic scoring** with bonuses for meld type and event synergy.
-- **Bots** so you can play instantly without setting up a table.
+After pushing to `main`, GitHub Actions deploys `/web` to GitHub Pages.
 
-## How to play
+- Workflow: `.github/workflows/deploy-pages.yml`
+- Site source: `web/`
+- URL pattern: `https://<your-github-username>.github.io/<repo-name>/`
+
+### One-time repo settings
+
+In your GitHub repo:
+
+1. Go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+
+After that, every push to `main` publishes the latest browser build automatically.
+
+## Browser controls
+
+- Click hand tiles to select them.
+- **Play Meld**: plays selected valid set/run (3+ tiles).
+- **Play Power**: select one power tile (`Shift`, `Steal`, `Forge`) and play it.
+- **Draw**: draw one tile.
+- **Pass**: skip turn.
+
+## Original terminal game
 
 ```bash
 python3 game.py
@@ -32,13 +47,3 @@ You can:
 
 - **Set**: same value, all different elements (wildcards allowed).
 - **Run**: same element, consecutive values (wildcards can fill gaps).
-
-## Design notes
-
-This is a terminal-first prototype focused on game mechanics.
-If you want, the next iteration can add:
-
-- local multiplayer over network,
-- deterministic seeds + replay logs,
-- a web UI with drag-and-drop table editing,
-- stronger AI (lookahead rather than greedy).

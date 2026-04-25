@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RiftMeld</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>RiftMeld</h1>
+        <p>Playable in any modern browser. No install required.</p>
+      </header>
+
+      <section class="panel controls">
+        <label>
+          Your name
+          <input id="playerName" value="You" />
+        </label>
+        <label>
+          Bots
+          <select id="botCount">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+        <button id="newGameBtn">Start New Game</button>
+      </section>
+
+      <section class="panel status">
+        <div id="status"></div>
+        <div id="scoreboard"></div>
+      </section>
+
+      <section class="panel table">
+        <h2>Table Melds</h2>
+        <div id="tableMelds" class="tile-list"></div>
+      </section>
+
+      <section class="panel hand">
+        <h2>Your Hand</h2>
+        <p>Select 3+ tiles then play meld, or use draw/pass/power.</p>
+        <div id="hand" class="tile-list"></div>
+        <div class="actions">
+          <button id="playMeldBtn">Play Meld</button>
+          <button id="playPowerBtn">Play Power</button>
+          <button id="drawBtn">Draw</button>
+          <button id="passBtn">Pass</button>
+        </div>
+      </section>
+
+      <section class="panel log">
+        <h2>Game Log</h2>
+        <pre id="log"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
