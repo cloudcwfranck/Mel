@@ -36,6 +36,8 @@ jobs:
       - name: Configure Pages
         if: ${{ env.PAGES_ENABLEMENT_TOKEN == '' }}
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v3
